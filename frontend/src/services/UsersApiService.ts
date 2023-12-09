@@ -1,4 +1,3 @@
-import { ApiGroupPath } from "@/configs/api.config";
 import type { User } from "@/types/users";
 import { ApiService } from "./ApiService";
 
@@ -7,12 +6,8 @@ interface IUsersApiService {
 }
 
 class UsersApiService extends ApiService implements IUsersApiService {
-  constructor() {
-    super(ApiGroupPath.USERS);
-  }
-
   async fetchAll(): Promise<User[]> {
-    return await this.get<User[]>("");
+    return await this.get<User[]>("/users");
   }
 }
 
